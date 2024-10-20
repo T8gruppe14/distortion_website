@@ -3,6 +3,12 @@ import "../styles/global.css";
 import MainLayout from "../layouts/MainLayout.astro";
 import Knap from "../components/Knap.astro";
 import Card from "../components/Card.astro";
+import { literal } from "astro:schema";
+
+const data = await fetch(
+  "https://fetch-with-astro.netlify.app/api/artists"
+).then((response) => response.json());
+console.log(data);
 ---
 
 <MainLayout title="Search">
@@ -10,4 +16,15 @@ import Card from "../components/Card.astro";
   <Knap variant="blue_btn"><b>VIEW ALL ARTISTS</b></Knap>
   <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
   <Card header="Artigeardit" time="14:00-15:00" />
+  <ul class="artists">
+    {
+      data.map((artist) => (
+        <li>
+          <h3>{artist.title}</h3>
+          <img src={artist.og_image.url} alt="" />
+          {/* <p>{artist.content}</p> */}
+        </li>
+      ))
+    }
+  </ul>
 </MainLayout>

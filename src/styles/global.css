@@ -25,3 +25,19 @@ html {
   --first-botton-bg: #ea5943;
   --second-botton-bg: #254167;
 }
+
+img{
+  max-height: 100%;
+  width: 200px;
+
+}
+
+.artists{display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  position: relative;
+
+}
+.artists h3 {
+  position: absolute;
+}

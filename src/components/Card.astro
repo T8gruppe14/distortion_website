@@ -1,3 +1,19 @@
 ---
-
+const { header, time } = Astro.props;
 ---
+
+<article>
+  <p>{time}</p>
+  <slot />
+  <h1>{header}</h1>
+</article>
+
+<style>
+  p {
+    width: 100px;
+    background-color: #ea5943;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+  }
+</style>

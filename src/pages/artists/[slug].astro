@@ -19,7 +19,7 @@ console.log(myData);
 ---
 
 <MainLayout title={myData.title}>
-  <img src={myData.og_image.url} alt="" />
+  <img src={myData.og_image.url} alt={myData.title} />
   <h2>{myData.title}</h2>
   <p>{myData.content}</p>
 </MainLayout>

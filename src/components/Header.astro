@@ -21,8 +21,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color:#B5DDEB;
+    background-color:transparent;
 }
+
 .burger {
     cursor: pointer;
     display: flex;
@@ -34,20 +35,22 @@ header {
     height: 24px; /* Plads nok til linjernes transformering */
     justify-content: space-between; /* Sørger for jævn afstand mellem linjerne */
         transition: transform 0.3s ease;
+            z-index: 20; /* Sørger for, at den vises over baggrunden */
 }
 
 .line {
     width: 30px;
     height: 4px;
-    background-color: #333;
+    background-color: var(--red-line);
         transition: all 0.3s ease;
+        
 }
 
 nav {
     display: none; /* Skjul menuen som standard */
     position: absolute;
-    /*right: 45%; /* Placer menuen i venstre side */
-    /*top: 20px;*/
+    right: 45%; /* Placer menuen i venstre side */
+    top: 20px;
 }
 
 nav.active {

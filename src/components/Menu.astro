@@ -27,8 +27,17 @@ const menuItems = [
 
 <style>
 nav {
-  background-color: #254167; /* Baggrundsfarve */
-  padding: 100%; /* Afstand omkring menuen */  
+  background-color: var(--bg-menu); /* Baggrundsfarve */
+  padding: 1rem; /* Afstand omkring menuen */
+  height: 100vh; /* Fuld højde */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Fuld bredde */
+  transition: background-color 0.3s ease;
 }
 
 ul {
@@ -44,12 +53,12 @@ li {
 
 a {
   text-decoration: none; /* Fjern understregning */
-  color: #B2D0DA; /* Tekstfarve */
+  color: var(--bg-base); /* Tekstfarve */
   text-transform: uppercase;
 }
 
 a:hover {
-  color: #007bff; /* Farve ved hover */
+  color: var(--red-line); /* Farve ved hover */
 }
 </style>
 

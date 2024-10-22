@@ -12,7 +12,7 @@
 
     <!-- Anden kolonne ( email input) -->
     <div class="column">
-      <p>Get updated with all the fun stuff</p>
+      <h2>Get updated with <br /> all the fun stuff</h2>
       <form class="email-form">
         <input type="email" placeholder="Email address" />
         <button type="submit">→</button>
@@ -20,31 +20,38 @@
     </div>
 
     <!-- Tredje kolonne (Join the Party, Apps, Social Media) -->
-    <div class="column">
-      <p>Join the party</p>
-      <a href="#">Buy ticket →</a>
-
-      <p>Official Festival App</p>
-      <div class="app-links">
-        <a href="#"><img src="/path-to-appstore-logo" alt="App Store" /></a>
-        <a href="#"><img src="/path-to-playstore-logo" alt="Google Play" /></a>
+    <div class="column-third">
+      <div class="column-element">
+        <h2>Join the party</h2>
+        <a class="buy-ticket" href="#">Buy ticket →</a>
       </div>
 
-      <p>Follow us</p>
-      <div class="social-links">
-        <a href="#"><img src="/path-to-facebook-logo" alt="Facebook" /></a>
-        <a href="#"><img src="/path-to-instagram-logo" alt="Instagram" /></a>
+      <h2>Official Festival App</h2>
+      <div class="column-element">
+        <div class="app-links">
+          <a href="#"><img src="/path-to-appstore-logo" alt="App Store" /></a>
+          <a href="#"><img src="/path-to-playstore-logo" alt="Google Play" /></a
+          >
+        </div>
+      </div>
+
+      <h2>Follow us</h2>
+      <div class="column-element">
+        <div class="social-links">
+          <a href="#"><img src="#" alt="Facebook" /></a>
+          <a href="#"><img src="/path-to-instagram-logo" alt="Instagram" /></a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Logos at the bottom center -->
+  <!-- Logo'er i bunden' -->
   <div class="footer-logos">
     <img src="/path-to-tuborg-logo" alt="Tuborg" />
     <img src="/path-to-kbh-logo" alt="Københavns Kommune" />
   </div>
 
-  <!-- Background dancer (absolute position) -->
+  <!-- Rød dansende mand -->
   <div class="dancer">
     <img src="/path-to-dancer-image" alt="Dancer" />
   </div>
@@ -55,14 +62,19 @@
     background-color: #003366; /* Dark blue background */
     color: #b2d0da; /* White text color */
     position: relative;
-    padding: 50px 0;
+    padding: 50px 20px;
     text-align: left;
+    font-family: Arial, sans-serif;
   }
 
   .footer h1 {
     font-size: 3rem; /* Large H1 */
     margin-bottom: 40px;
+  }
+
+  .footer h2 {
     font-family: Arial, sans-serif;
+    font-size: 2em;
   }
 
   .footer-content {
@@ -74,31 +86,63 @@
 
   .column {
     flex: 1;
-    padding: 0 20px;
   }
 
   .column.empty {
     flex: 1;
   }
 
+  .column-third {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Fordeler elementer jævnt fra top til bund */
+    height: 100%; /* Sørg for, at kolonnen fylder hele højdeområdet */
+    padding: 0; /* Juster efter behov */
+  }
+
+  .column-element {
+    margin-bottom: 40px;
+  }
+
   .email-form {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
+    margin-top: 10px;
+    border-bottom: 1px solid #b2d0da; /* Understregning */
+    width: 80%; /* Juster efter behov */
   }
 
   .email-form input {
-    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #b2d0da;
+    flex-grow: 1;
     font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .email-form input::placeholder {
+    color: #b2d0da;
   }
 
   .email-form button {
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #e60000; /* Red button */
-    color: white;
+    background: none;
     border: none;
-    margin-left: 10px;
+    color: #b2d0da;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .buy-ticket {
+    color: #b2d0da;
+    text-decoration: none;
+  }
+
+  .buy-ticket:hover {
+    color: #e53014;
   }
 
   .app-links img,
@@ -128,60 +172,42 @@
   .dancer img {
     max-width: 200px;
   }
-</style>
 
-<!-- <style>
-  //  .footer {
-    background-color: #002f6c;
-    color: #b2d0da;
-    padding: 40px 0;
+  @media (max-width: 768px) {
+    .footer {
+      padding: 20px;
+    }
+
+    .footer h1 {
+      font-size: 2rem;
+      text-align: left;
+    }
+
+    .footer h2 {
+      font-size: 1.2rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      align-items: left;
+    }
+
+    .column-third {
+      align-items: left;
+    }
+
+    .email-form {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .dancer {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .footer-logos {
+      margin-top: 20px;
+    }
   }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .footer-section {
-    display: flex;
-    flex-direction: column;
-  }
-  h1 {
-    font-family: Arial, sans-serif;
-    font-size: 2.5em;
-  }
-  h2 {
-    font-family: Arial, sans-serif;
-    font-size: 1.2em;
-  }
-  .email-signup {
-    display: flex;
-  }
-  .email-signup input {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    margin-right: 10px;
-  }
-  .email-signup button {
-    background-color: #ff4500;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  .footer-logos img {
-    max-width: 50px;
-    margin: 10px;
-  }
-  .app-links img {
-    max-width: 100px;
-    margin: 10px;
-  }
-  .social-links img {
-    max-width: 30px;
-    margin: 5px;
-  }
-</style> -->
+</style>

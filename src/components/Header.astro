@@ -1,3 +1,51 @@
 ---
-
+// Menu.astro
+const menuItems = [
+  { label: 'Frontpage', link: '/' },
+  { label: 'Program', link: '/listeview' },
+  { label: 'Practical information', link: '/' },
+  { label: 'Neighbours', link: '/' },
+  { label: 'Merchandise', link: '/' },
+  { label: 'Lost and found', link: '/' },
+  { label: 'Jobs', link: '/' },
+  { label: 'Volunteers', link: '/' }
+];
 ---
+
+<header>
+<nav>
+  <ul>
+    {menuItems.map(item => (
+      <li>
+        <a href={item.link}>{item.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+</header>
+
+
+<style>
+nav {
+  background-color: #f8f8f8; /* Baggrundsfarve */
+  padding: 1rem; /* Afstand omkring menuen */
+}
+
+ul {
+  list-style: none; /* Fjern punkttegn */
+  display: flex; /* Læg menupunkter i en række */
+}
+
+li {
+  margin-right: 2rem; /* Afstand mellem menupunkter */
+}
+
+a {
+  text-decoration: none; /* Fjern understregning */
+  color: #333; /* Tekstfarve */
+}
+
+a:hover {
+  color: #007bff; /* Farve ved hover */
+}
+</style>

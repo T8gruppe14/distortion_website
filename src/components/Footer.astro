@@ -3,66 +3,155 @@
 ---
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-section">
-      <h1>STREET LIFE &<br> NEW DANCE MUSIC</h1>
-    </div>
+  <!-- H1 i toppen -->
+  <h1>STREET LIFE & <br /> NEW DANCE MUSIC</h1>
 
-    <div class="footer-section">
-      <h2>Get updated with all the fun stuff</h2>
-      <form class="email-signup">
-        <input type="email" placeholder="Email address" required />
+  <div class="footer-content">
+    <!-- Første kolonne - (tom) -->
+    <div class="column empty"></div>
+
+    <!-- Anden kolonne ( email input) -->
+    <div class="column">
+      <p>Get updated with all the fun stuff</p>
+      <form class="email-form">
+        <input type="email" placeholder="Email address" />
         <button type="submit">→</button>
       </form>
     </div>
 
-    <div class="footer-section">
-      <h2>Join the party</h2>
-      <a href="/buy-ticket">Buy ticket →</a>
-    </div>
+    <!-- Tredje kolonne (Join the Party, Apps, Social Media) -->
+    <div class="column">
+      <p>Join the party</p>
+      <a href="#">Buy ticket →</a>
 
-    <div class="footer-section">
-      <h2>Official Festival App</h2>
-      <p>Get set times, maps and more</p>
+      <p>Official Festival App</p>
       <div class="app-links">
-        <a href="#"><img src="/path-to-app-store-logo" alt="App Store" /></a>
-        <a href="#"><img src="/path-to-google-play-logo" alt="Google Play" /></a>
+        <a href="#"><img src="/path-to-appstore-logo" alt="App Store" /></a>
+        <a href="#"><img src="/path-to-playstore-logo" alt="Google Play" /></a>
       </div>
-    </div>
 
-    <div class="footer-section">
-      <h2>Follow us</h2>
+      <p>Follow us</p>
       <div class="social-links">
-        <a href="#"><img src="/path-to-facebook-icon" alt="Facebook" /></a>
-        <a href="#"><img src="/path-to-instagram-icon" alt="Instagram" /></a>
+        <a href="#"><img src="/path-to-facebook-logo" alt="Facebook" /></a>
+        <a href="#"><img src="/path-to-instagram-logo" alt="Instagram" /></a>
       </div>
     </div>
+  </div>
 
-    <div class="footer-logos">
-      <img src="/path-to-tuborg-logo" alt="Tuborg Logo" />
-      <img src="/path-to-copenhagen-logo" alt="Copenhagen Logo" />
-    </div>
+  <!-- Logos at the bottom center -->
+  <div class="footer-logos">
+    <img src="/path-to-tuborg-logo" alt="Tuborg" />
+    <img src="/path-to-kbh-logo" alt="Københavns Kommune" />
+  </div>
+
+  <!-- Background dancer (absolute position) -->
+  <div class="dancer">
+    <img src="/path-to-dancer-image" alt="Dancer" />
   </div>
 </footer>
 
 <style>
   .footer {
+    background-color: #003366; /* Dark blue background */
+    color: #b2d0da; /* White text color */
+    position: relative;
+    padding: 50px 0;
+    text-align: left;
+  }
+
+  .footer h1 {
+    font-size: 3rem; /* Large H1 */
+    margin-bottom: 40px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 0 20px;
+  }
+
+  .column {
+    flex: 1;
+    padding: 0 20px;
+  }
+
+  .column.empty {
+    flex: 1;
+  }
+
+  .email-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .email-form input {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .email-form button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #e60000; /* Red button */
+    color: white;
+    border: none;
+    margin-left: 10px;
+  }
+
+  .app-links img,
+  .social-links img {
+    max-width: 100px;
+    margin: 10px;
+  }
+
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .footer-logos img {
+    max-width: 100px;
+    margin: 0 20px;
+  }
+
+  .dancer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    opacity: 0.7;
+  }
+
+  .dancer img {
+    max-width: 200px;
+  }
+</style>
+
+<!-- <style>
+  //  .footer {
     background-color: #002f6c;
-    color: #fff;
+    color: #b2d0da;
     padding: 40px 0;
   }
   .container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
   .footer-section {
     display: flex;
     flex-direction: column;
   }
-  h1, h2 {
+  h1 {
+    font-family: Arial, sans-serif;
+    font-size: 2.5em;
+  }
+  h2 {
     font-family: Arial, sans-serif;
     font-size: 1.2em;
   }
@@ -95,4 +184,4 @@
     max-width: 30px;
     margin: 5px;
   }
-</style>
+</style> -->

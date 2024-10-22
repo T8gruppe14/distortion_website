@@ -20,9 +20,10 @@ console.log(data);
     {
       data.map((artist) => (
         <li>
-          <h3>{artist.title}</h3>
-          <img src={artist.og_image.url} alt="" />
-          {/* <p>{artist.content}</p> */}
+          <a href={`artists/${artist.slug}`}>
+            <h3>{artist.title}</h3>
+            <img src={artist.og_image.url} alt="" />
+          </a>
         </li>
       ))
     }

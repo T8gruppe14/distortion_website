@@ -1,51 +1,53 @@
 ---
-// Menu.astro
-const menuItems = [
-  { label: 'Frontpage', link: '/' },
-  { label: 'Program', link: '/listeview' },
-  { label: 'Practical information', link: '/' },
-  { label: 'Neighbours', link: '/' },
-  { label: 'Merchandise', link: '/' },
-  { label: 'Lost and found', link: '/' },
-  { label: 'Jobs', link: '/' },
-  { label: 'Volunteers', link: '/' }
-];
+// Header.astro
+import Menu from './Menu.astro';
 ---
 
 <header>
-<nav>
-  <ul>
-    {menuItems.map(item => (
-      <li>
-        <a href={item.link}>{item.label}</a>
-      </li>
-    ))}
-  </ul>
-</nav>
+    <div class="burger" id="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <nav id="menu">
+        <Menu />
+    </nav>
 </header>
 
-
 <style>
+header {
+    position: relative;
+}
+
+.burger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.line {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 4px 0;
+}
+
 nav {
-  background-color: #f8f8f8; /* Baggrundsfarve */
-  padding: 1rem; /* Afstand omkring menuen */
+    display: none; /* Skjul menuen som standard */
 }
 
-ul {
-  list-style: none; /* Fjern punkttegn */
-  display: flex; /* Læg menupunkter i en række */
-}
-
-li {
-  margin-right: 2rem; /* Afstand mellem menupunkter */
-}
-
-a {
-  text-decoration: none; /* Fjern understregning */
-  color: #333; /* Tekstfarve */
-}
-
-a:hover {
-  color: #007bff; /* Farve ved hover */
+nav.active {
+    display: block; /* Vis menuen når aktiv */
 }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  });
+</script>

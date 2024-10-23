@@ -41,3 +41,39 @@ img{
 .artists h3 {
   /* position: absolute; */
 }
+
+.gradient{
+  width: 100%;
+  height: 100%;
+}
+
+.index{
+  background-image: url(/public/images/distortion_gradient.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 0.5fr 1fr 0.3fr;
+  padding-left: 30px;
+  
+
+}
+
+.forside_h1{
+  padding: 80px 40px 150px 0 ;
+  grid-column: 2/ span 2;
+  place-self: end;
+  
+  
+}
+
+
+.timer{
+  grid-row: 3;
+  grid-column: 1/ span 2;
+  width: 70%;
+  
+  
+
+}

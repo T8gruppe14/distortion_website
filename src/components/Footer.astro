@@ -5,7 +5,7 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-section">
-      <h1>STREET LIFE &<br> NEW DANCE MUSIC</h1>
+      <h1>STREET LIFE &<br /> NEW DANCE MUSIC</h1>
     </div>
 
     <div class="footer-section">
@@ -25,8 +25,10 @@
       <h2>Official Festival App</h2>
       <p>Get set times, maps and more</p>
       <div class="app-links">
-        <a href="#"><img src="/public/image/app_store.svg" alt="App Store" /></a>
-        <a href="#"><img src="/path-to-google-play-logo" alt="Google Play" /></a>
+        <a href="#"><img src="/public/image/app_store.svg" alt="App Store" /></a
+        >
+        <a href="#"><img src="/path-to-google-play-logo" alt="Google Play" /></a
+        >
       </div>
     </div>
 
@@ -38,66 +40,68 @@
       </div>
     </div>
 
-  <!-- Logo'er i bunden' -->
-  <div class="footer-logos">
-    <img src="/path-to-tuborg-logo" alt="Tuborg" />
-    <img src="/path-to-kbh-logo" alt="Københavns Kommune" />
+    <!-- Logo'er i bunden' -->
+    <div class="footer-logos">
+      <img src="/path-to-tuborg-logo" alt="Tuborg" />
+      <img src="/path-to-kbh-logo" alt="Københavns Kommune" />
+    </div>
+
+    <!-- Rød dansende mand -->
+    <div class="dancer">
+      <img src="/path-to-dancer-image" alt="Dancer" />
+    </div>
   </div>
 
-  <!-- Rød dansende mand -->
-  <div class="dancer">
-    <img src="/path-to-dancer-image" alt="Dancer" />
-  </div>
+  <style>
+    .footer {
+      background-color: #002f6c;
+      color: #fff;
+      padding: 40px 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+    }
+    h1,
+    h2 {
+      font-family: Arial, sans-serif;
+      font-size: 1.2em;
+    }
+    .email-signup {
+      display: flex;
+    }
+    .email-signup input {
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      margin-right: 10px;
+    }
+    .email-signup button {
+      background-color: #ff4500;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .footer-logos img {
+      max-width: 50px;
+      margin: 10px;
+    }
+    .app-links img {
+      max-width: 100px;
+      margin: 10px;
+    }
+    .social-links img {
+      max-width: 30px;
+      margin: 5px;
+    }
+  </style>
 </footer>
-
-<style>
-  .footer {
-    background-color: #002f6c;
-    color: #fff;
-    padding: 40px 0;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-  }
-  .footer-section {
-    display: flex;
-    flex-direction: column;
-  }
-  h1, h2 {
-    font-family: Arial, sans-serif;
-    font-size: 1.2em;
-  }
-  .email-signup {
-    display: flex;
-  }
-  .email-signup input {
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
-    margin-right: 10px;
-  }
-  .email-signup button {
-    background-color: #ff4500;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  .footer-logos img {
-    max-width: 50px;
-    margin: 10px;
-  }
-  .app-links img {
-    max-width: 100px;
-    margin: 10px;
-  }
-  .social-links img {
-    max-width: 30px;
-    margin: 5px;
-  }
-</style>

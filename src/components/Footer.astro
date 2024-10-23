@@ -3,214 +3,96 @@
 ---
 
 <footer class="footer">
-  <!-- H1 i toppen -->
-  <h1>STREET LIFE & <br /> NEW DANCE MUSIC</h1>
+  <div class="container">
+    <div class="footer-section">
+      <h1>STREET LIFE &<br> NEW DANCE MUSIC</h1>
+    </div>
 
-  <div class="footer-content">
-    <!-- Første kolonne - (tom) -->
-    <div class="column empty"></div>
-
-    <!-- Anden kolonne ( email input) -->
-    <div class="column">
-      <h2>Get updated with <br /> all the fun stuff</h2>
-      <form class="email-form">
-        <input type="email" placeholder="Email address" />
+    <div class="footer-section">
+      <h2>Get updated with all the fun stuff</h2>
+      <form class="email-signup">
+        <input type="email" placeholder="Email address" required />
         <button type="submit">→</button>
       </form>
     </div>
 
-    <!-- Tredje kolonne (Join the Party, Apps, Social Media) -->
-    <div class="column-third">
-      <div class="column-element">
-        <h2>Join the party</h2>
-        <a class="buy-ticket" href="#">Buy ticket →</a>
-      </div>
+    <div class="footer-section">
+      <h2>Join the party</h2>
+      <a href="/buy-ticket">Buy ticket →</a>
+    </div>
 
+    <div class="footer-section">
       <h2>Official Festival App</h2>
-      <div class="column-element">
-        <div class="app-links">
-          <a href="#"><img src="/path-to-appstore-logo" alt="App Store" /></a>
-          <a href="#"><img src="/path-to-playstore-logo" alt="Google Play" /></a
-          >
-        </div>
-      </div>
-
-      <h2>Follow us</h2>
-      <div class="column-element">
-        <div class="social-links">
-          <a href="#"><img src="#" alt="Facebook" /></a>
-          <a href="#"><img src="/path-to-instagram-logo" alt="Instagram" /></a>
-        </div>
+      <p>Get set times, maps and more</p>
+      <div class="app-links">
+        <a href="#"><img src="/public/image" alt="App Store" /></a>
+        <a href="#"><img src="/path-to-google-play-logo" alt="Google Play" /></a>
       </div>
     </div>
-  </div>
 
-  <!-- Logo'er i bunden' -->
-  <div class="footer-logos">
-    <img src="/path-to-tuborg-logo" alt="Tuborg" />
-    <img src="/path-to-kbh-logo" alt="Københavns Kommune" />
-  </div>
+    <div class="footer-section">
+      <h2>Follow us</h2>
+      <div class="social-links">
+        <a href="#"><img src="/path-to-facebook-icon" alt="Facebook" /></a>
+        <a href="#"><img src="/path-to-instagram-icon" alt="Instagram" /></a>
+      </div>
+    </div>
 
-  <!-- Rød dansende mand -->
-  <div class="dancer">
-    <img src="/path-to-dancer-image" alt="Dancer" />
+    <div class="footer-logos">
+      <img src="/path-to-tuborg-logo" alt="Tuborg Logo" />
+      <img src="/path-to-copenhagen-logo" alt="Copenhagen Logo" />
+    </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: #003366; /* Dark blue background */
-    color: #b2d0da; /* White text color */
-    position: relative;
-    padding: 50px 20px;
-    text-align: left;
-    font-family: Arial, sans-serif;
+    background-color: #002f6c;
+    color: #fff;
+    padding: 40px 0;
   }
-
-  .footer h1 {
-    font-size: 3rem; /* Large H1 */
-    margin-bottom: 40px;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
   }
-
-  .footer h2 {
-    font-family: Arial, sans-serif;
-    font-size: 2em;
-  }
-
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    padding: 0 20px;
-  }
-
-  .column {
-    flex: 1;
-  }
-
-  .column.empty {
-    flex: 1;
-  }
-
-  .column-third {
+  .footer-section {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Fordeler elementer jævnt fra top til bund */
-    height: 100%; /* Sørg for, at kolonnen fylder hele højdeområdet */
-    padding: 0; /* Juster efter behov */
   }
-
-  .column-element {
-    margin-bottom: 40px;
+  h1, h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
   }
-
-  .email-form {
+  .email-signup {
     display: flex;
-    align-items: left;
-    justify-content: left;
-    margin-top: 10px;
-    border-bottom: 1px solid #b2d0da; /* Understregning */
-    width: 80%; /* Juster efter behov */
   }
-
-  .email-form input {
+  .email-signup input {
+    padding: 10px;
     border: none;
-    outline: none;
-    background: transparent;
-    color: #b2d0da;
-    flex-grow: 1;
-    font-size: 1rem;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    border-radius: 3px;
+    margin-right: 10px;
   }
-
-  .email-form input::placeholder {
-    color: #b2d0da;
-  }
-
-  .email-form button {
-    background: none;
+  .email-signup button {
+    background-color: #ff4500;
+    color: white;
     border: none;
-    color: #b2d0da;
-    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 3px;
     cursor: pointer;
   }
-  .email-form button:hover {
-    color: #e53014;
+  .footer-logos img {
+    max-width: 50px;
+    margin: 10px;
   }
-
-  .buy-ticket {
-    color: #b2d0da;
-    text-decoration: none;
-  }
-
-  .buy-ticket:hover {
-    color: #e53014;
-  }
-
-  .app-links img,
-  .social-links img {
+  .app-links img {
     max-width: 100px;
     margin: 10px;
   }
-
-  .footer-logos {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-  }
-
-  .footer-logos img {
-    max-width: 100px;
-    margin: 0 20px;
-  }
-
-  .dancer {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    opacity: 0.7;
-  }
-
-  .dancer img {
-    max-width: 200px;
-  }
-
-  @media (max-width: 768px) {
-    .footer {
-      padding: 20px;
-    }
-
-    .footer h1 {
-      font-size: 2rem;
-      text-align: left;
-    }
-
-    .footer h2 {
-      font-size: 1.2rem;
-    }
-
-    .footer-content {
-      flex-direction: column;
-      align-items: left;
-    }
-
-    .column-third {
-      align-items: left;
-    }
-
-    .email-form {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .dancer {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .footer-logos {
-      margin-top: 20px;
-    }
+  .social-links img {
+    max-width: 30px;
+    margin: 5px;
   }
 </style>

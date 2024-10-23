@@ -6,8 +6,16 @@ import Card from "../components/Card.astro";
 import { literal } from "astro:schema";
 
 const data = await fetch(
-  "https://fetch-with-astro.netlify.app/api/artists"
-).then((response) => response.json());
+  "https://sgavxerkmhmstpzpgpuw.supabase.co/rest/v1/artists",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYXZ4ZXJrbWhtc3RwenBncHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2Nzk1MzksImV4cCI6MjA0NTI1NTUzOX0.h5Aqaz-Bt1qlt5_JDw3pKLp83L8YA5XWG57VRB15LRw",
+    },
+  }
+).then((res) => res.json());
+
 console.log(data);
 ---
 
@@ -42,7 +50,7 @@ console.log(data);
       data.map((artist) => (
         <li>
           <a href={`artists/${artist.slug}`}>
-            <img src={artist.og_image.url} alt="" />
+            <img src={artist.og_image} alt="" />
             <h3>{artist.title}</h3>
           </a>
         </li>

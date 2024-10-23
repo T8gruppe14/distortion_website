@@ -3,8 +3,15 @@ import MainLayout from "../../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
   const data = await fetch(
-    "https://fetch-with-astro.netlify.app/api/artists"
-  ).then((response) => response.json());
+    "https://sgavxerkmhmstpzpgpuw.supabase.co/rest/v1/artists",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYXZ4ZXJrbWhtc3RwenBncHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2Nzk1MzksImV4cCI6MjA0NTI1NTUzOX0.h5Aqaz-Bt1qlt5_JDw3pKLp83L8YA5XWG57VRB15LRw",
+      },
+    }
+  ).then((res) => res.json());
 
   return data.map((artist) => {
     return {
@@ -17,76 +24,92 @@ export async function getStaticPaths() {
 const { myData } = Astro.props;
 console.log(myData);
 ---
+
 <section class="artist_container">
-<MainLayout title={myData.title}> 
-<div class="image_container"><img src={myData.og_image.url} alt={myData.title} />
-<div class="blue-overlay"></div></div>
-<div class="artist_content">
-  <div class="venstre_kolonne">
-  <h2>{myData.date}</h2>
-  <p>{myData.content}</p>
-  </div>
-  <div class="højre kolonne">
-    <div class="spotify">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/2BV0Voxp33r06Vxmb5if8q?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <MainLayout title={myData.title}>
+    <div class="image_container">
+      <img src={myData.og_image} alt={myData.title} />
+      <div class="blue-overlay"></div>
     </div>
-  </div>
-</div>
-</MainLayout>
+    <div class="artist_content">
+      <div class="venstre_kolonne">
+        <h2>{myData.date}</h2>
+        <h3>{myData.time}</h3>
+        <p>{myData.content}</p>
+      </div>
+      <div class="højre kolonne">
+        <div class="spotify">
+          <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/artist/2BV0Voxp33r06Vxmb5if8q?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </MainLayout>
 
-<style>
-.artist_container{
-  background-color: #B5DDEB;
-  margin: 0;
-  
-  img {
-  width: 100%;     /* Fylder hele bredden af siden */
-  height: 100%;    /* Højden justeres automatisk for at bevare billedets proportioner */
-  object-fit: cover;  /* Sørger for at billedet beskæres pænt, hvis det overgår max-højden */
-  object-position: center;
-  display: block;
-  }
-}
+  <style>
+    .artist_container {
+      background-color: #b5ddeb;
+      margin: 0;
 
-.image_container{
-  width: 100%;        /* Fylder hele bredden af containeren */
-  max-height: 400px;  /* Sætter en maksimal højde, kan justeres */
-  overflow: hidden;   /* Skjuler alt, der går ud over containeren */
-  position: relative;    /* Gør det muligt at placere overlay over billedet */
-    display: inline-block; /* Sikrer at containeren passer til billedets dimensioner */
-}
+      img {
+        width: 100%; /* Fylder hele bredden af siden */
+        height: 100%; /* Højden justeres automatisk for at bevare billedets proportioner */
+        object-fit: cover; /* Sørger for at billedet beskæres pænt, hvis det overgår max-højden */
+        object-position: center;
+        display: block;
+      }
+    }
 
-  .blue-overlay {
-    position: absolute;    /* Gør overlayet placerbart over billedet */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color:RGB(0, 188, 255, 0.4); /* Blå farve med 40% gennemsigtighed */
-    pointer-events: none;  /* Gør overlayet "gennemsigtigt" for klik */
-  }
+    .image_container {
+      width: 100%; /* Fylder hele bredden af containeren */
+      max-height: 400px; /* Sætter en maksimal højde, kan justeres */
+      overflow: hidden; /* Skjuler alt, der går ud over containeren */
+      position: relative; /* Gør det muligt at placere overlay over billedet */
+      display: inline-block; /* Sikrer at containeren passer til billedets dimensioner */
+    }
 
-.artist_content{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
+    .blue-overlay {
+      position: absolute; /* Gør overlayet placerbart over billedet */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: RGB(
+        0,
+        188,
+        255,
+        0.4
+      ); /* Blå farve med 40% gennemsigtighed */
+      pointer-events: none; /* Gør overlayet "gennemsigtigt" for klik */
+    }
 
-.venstre_kolonne{
-  grid-column: 1;
-  justify-content: left;
-}
+    .artist_content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
-.højre_kolonne {
-  grid-column: 2;              /* Definerer at højre kolonne er den anden kolonne */
-    display: flex;               /* Flexbox for at centrere indholdet i kolonnen */
-    justify-content: center;
-    align-items: center;
-}
+    .venstre_kolonne {
+      grid-column: 1;
+      justify-content: left;
+    }
 
-.artist_container h2{
-  color: #E53014;
-}
+    .højre_kolonne {
+      grid-column: 2; /* Definerer at højre kolonne er den anden kolonne */
+      display: flex; /* Flexbox for at centrere indholdet i kolonnen */
+      justify-content: center;
+      align-items: center;
+    }
 
-
-</style>
+    .artist_container h2 {
+      color: #e53014;
+    }
+  </style>
+</section>

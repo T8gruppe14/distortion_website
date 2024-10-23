@@ -35,9 +35,9 @@ img{
 .artists{display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  position: relative;
+  /* position: relative; */
 
 }
 .artists h3 {
-  position: absolute;
+  /* position: absolute; */
 }

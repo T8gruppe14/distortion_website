@@ -30,6 +30,8 @@ h1 {
   font-family: "Coda", serif;
   font-weight: 800;
   font-size: 128px;
+  text-transform: uppercase;
+  text-align: right;
 }
 
 img {

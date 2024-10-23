@@ -27,25 +27,46 @@ const menuItems = [
 
 <style>
 nav {
-  background-color: transparent; /* Baggrundsfarve */
+  background-color: var(--bg-menu); /* Baggrundsfarve */
+  background-image: url(/public/images/red_logo.png); /* Baggrundsbillede */
+    background-repeat: no-repeat;
+background-position: center; /* Centrer baggrundsbilledet */
+    background-size: cover; /* Gør billedet tilpas stort til at dække hele containeren */
+        background-size: 650px; /* Baggrundsbilledet vil fylde 50% af containerens bredde */
   padding: 1rem; /* Afstand omkring menuen */
+  height: 100vh; /* Fuld højde */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Fuld bredde */
+  transition: background-color 0.3s ease;
 }
 
 ul {
   list-style: none; /* Fjern punkttegn */
-  display: flex; /* Læg menupunkter i en række */
+  padding: 0;
+  margin: 0;
 }
 
 li {
-  margin-right: 2rem; /* Afstand mellem menupunkter */
+  margin-bottom: 1rem; /* Afstand mellem menupunkterne lodret */
+  text-align: center;
 }
 
 a {
   text-decoration: none; /* Fjern understregning */
-  color: #333; /* Tekstfarve */
+  color: var(--bg-base); /* Tekstfarve */
+  text-transform: uppercase;
+    font-size: 49.3px;
+  font-family: "Yantramanav", serif;
+
 }
 
 a:hover {
-  color: #007bff; /* Farve ved hover */
+  color: var(--red-line); /* Farve ved hover */
 }
 </style>
+

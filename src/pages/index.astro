@@ -11,21 +11,45 @@ const data = await fetch(
 console.log(data);
 ---
 
-<MainLayout title="Search">
-  <h1>Search</h1>
-  <Knap variant="blue_btn"><b>VIEW ALL ARTISTS</b></Knap>
-  <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
-  <Card header="Artigeardit" time="14:00-15:00" />
+<MainLayout>
+  <div class="index">
+    <h1 class="forside_h1">Copenhagen Distortion</h1>
+    <p>
+      See you next summer <br />
+      4-8 June 2025 <br />
+      All over Copenhagen
+    </p>
+    <img
+      class="timer"
+      src="/public/images/group_10.svg"
+      alt="246 days 13 hours 31 minutes 43 seconds"
+    />
+  </div>
+  <div class="byer">
+    <div class="nb">
+      <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
+    </div>
+    <div class="ref">
+      <Knap variant="red_btn"><b>REFSHALEØEN</b></Knap>
+    </div>
+    <div class="rp">
+      <Knap variant="red_btn"><b>RÅDHUSPLADSEN</b></Knap>
+    </div>
+  </div>
+
   <ul class="artists">
     {
       data.map((artist) => (
         <li>
           <a href={`artists/${artist.slug}`}>
-            <h3>{artist.title}</h3>
             <img src={artist.og_image.url} alt="" />
+            <h3>{artist.title}</h3>
           </a>
         </li>
       ))
     }
   </ul>
+  <h1 class="artister">ARTISTS</h1>
+
+  <Knap variant="blue_btn">SEE ALL ARTISTS</Knap>
 </MainLayout>

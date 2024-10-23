@@ -17,9 +17,76 @@ export async function getStaticPaths() {
 const { myData } = Astro.props;
 console.log(myData);
 ---
-
-<MainLayout title={myData.title}>
-  <img src={myData.og_image.url} alt={myData.title} />
-  <h2>{myData.title}</h2>
+<section class="artist_container">
+<MainLayout title={myData.title}> 
+<div class="image_container"><img src={myData.og_image.url} alt={myData.title} />
+<div class="blue-overlay"></div></div>
+<div class="artist_content">
+  <div class="venstre_kolonne">
+  <h2>{myData.date}</h2>
   <p>{myData.content}</p>
+  </div>
+  <div class="højre kolonne">
+    <div class="spotify">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/2BV0Voxp33r06Vxmb5if8q?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
 </MainLayout>
+
+<style>
+.artist_container{
+  background-color: #B5DDEB;
+  margin: 0;
+  
+  img {
+  width: 100%;     /* Fylder hele bredden af siden */
+  height: 100%;    /* Højden justeres automatisk for at bevare billedets proportioner */
+  object-fit: cover;  /* Sørger for at billedet beskæres pænt, hvis det overgår max-højden */
+  object-position: center;
+  display: block;
+  }
+}
+
+.image_container{
+  width: 100%;        /* Fylder hele bredden af containeren */
+  max-height: 400px;  /* Sætter en maksimal højde, kan justeres */
+  overflow: hidden;   /* Skjuler alt, der går ud over containeren */
+  position: relative;    /* Gør det muligt at placere overlay over billedet */
+    display: inline-block; /* Sikrer at containeren passer til billedets dimensioner */
+}
+
+  .blue-overlay {
+    position: absolute;    /* Gør overlayet placerbart over billedet */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:RGB(0, 188, 255, 0.4); /* Blå farve med 40% gennemsigtighed */
+    pointer-events: none;  /* Gør overlayet "gennemsigtigt" for klik */
+  }
+
+.artist_content{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.venstre_kolonne{
+  grid-column: 1;
+  justify-content: left;
+}
+
+.højre_kolonne {
+  grid-column: 2;              /* Definerer at højre kolonne er den anden kolonne */
+    display: flex;               /* Flexbox for at centrere indholdet i kolonnen */
+    justify-content: center;
+    align-items: center;
+}
+
+.artist_container h2{
+  color: #E53014;
+}
+
+
+</style>

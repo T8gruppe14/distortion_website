@@ -4,11 +4,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Knap from "../components/Knap.astro";
 import Card from "../components/Card.astro";
 import { literal } from "astro:schema";
-
-const data = await fetch(
-  "https://fetch-with-astro.netlify.app/api/artists"
-).then((response) => response.json());
-console.log(data);
 ---
 
 <MainLayout>

@@ -26,9 +26,18 @@ console.log(data);
       alt="246 days 13 hours 31 minutes 43 seconds"
     />
   </div>
-  <Knap variant="blue_btn"><b>VIEW ALL ARTISTS</b></Knap>
-  <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
-  <Card header="Artigeardit" time="14:00-15:00" />
+  <div class="byer">
+    <div class="nb">
+      <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
+    </div>
+    <div class="ref">
+      <Knap variant="red_btn"><b>REFSHALEØEN</b></Knap>
+    </div>
+    <div class="rp">
+      <Knap variant="red_btn"><b>RÅDHUSPLADSEN</b></Knap>
+    </div>
+  </div>
+
   <ul class="artists">
     {
       data.map((artist) => (
@@ -41,4 +50,7 @@ console.log(data);
       ))
     }
   </ul>
+  <h1 class="artister">ARTISTS</h1>
+
+  <Knap variant="blue_btn">SEE ALL ARTISTS</Knap>
 </MainLayout>

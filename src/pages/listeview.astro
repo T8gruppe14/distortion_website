@@ -1,6 +1,19 @@
 ---
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+
+const data = await fetch(
+  "https://sgavxerkmhmstpzpgpuw.supabase.co/rest/v1/artists",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYXZ4ZXJrbWhtc3RwenBncHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2Nzk1MzksImV4cCI6MjA0NTI1NTUzOX0.h5Aqaz-Bt1qlt5_JDw3pKLp83L8YA5XWG57VRB15LRw",
+    },
+  }
+).then((res) => res.json());
+
+console.log(data);
 ---
 
 <html lang="en">
@@ -12,7 +25,18 @@ import Header from "../components/Header.astro";
     <title>Astro</title>
   </head>
   <body>
-        <Header />
+    <Header />
     <main>
+      <ul class="artists">
+        {
+          data.map((artist) => (
+            <li>
+              <img src={artist.og_image} alt="" />
+              <h3>{artist.title}</h3>
+            </li>
+          ))
+        }
+      </ul>
     </main>
   </body>
+</html>

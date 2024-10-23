@@ -1,3 +1,83 @@
 ---
-
+// Header.astro
+import Menu from './Menu.astro';
 ---
+
+<header>
+     <div class="burger" id="burger">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </div>
+    <nav id="menu">
+        <Menu />
+    </nav>
+</header>
+
+<style>
+header {
+    position: relative; /* For at kunne bruge positionering på elementer indeni */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:transparent;
+}
+
+.burger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 20px; /* Placer burgeren i højre side */
+    top: 20px;
+    width: 30px;  /* Sikrer at der er plads nok til burger-menuen */
+    height: 24px; /* Plads nok til linjernes transformering */
+    justify-content: space-between; /* Sørger for jævn afstand mellem linjerne */
+        transition: transform 0.3s ease;
+            z-index: 20; /* Sørger for, at den vises over baggrunden */
+}
+
+.line {
+    width: 30px;
+    height: 4px;
+    background-color: var(--red-line);
+        transition: all 0.3s ease;
+        
+}
+
+nav {
+    display: none; /* Skjul menuen som standard */
+    position: absolute;
+    right: 45%; /* Placer menuen i venstre side */
+    top: 20px;
+}
+
+nav.active {
+    display: block; /* Vis menuen når aktiv */
+}
+/* Når menuen er aktiv, skifter linjerne til et kryds */
+.burger.active .line1 {
+    transform: rotate(45deg) translate(5px, 9px);
+}
+
+.burger.active .line2 {
+    opacity: 0; /* Gør midterlinjen usynlig */
+}
+
+.burger.active .line3 {
+    transform: rotate(-45deg) translate(5px, -9px);
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      burger.classList.toggle('active'); // Tilføjer 'active' klassen til burger-menuen for at ændre til kryds
+    });
+  });
+</script>

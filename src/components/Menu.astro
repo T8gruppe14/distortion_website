@@ -1,0 +1,64 @@
+---
+// Menu.astro
+const menuItems = [
+  { label: 'Frontpage', link: '/' },
+  { label: 'Program', link: '/listeview' },
+  { label: 'Practical information', link: '/' },
+  { label: 'Neighbours', link: '/' },
+  { label: 'Merchandise', link: '/' },
+  { label: 'Lost and found', link: '/' },
+  { label: 'Jobs', link: '/' },
+  { label: 'Volunteers', link: '/' }
+];
+---
+
+<header>
+<nav>
+  <ul>
+    {menuItems.map(item => (
+      <li>
+        <a href={item.link}>{item.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>
+</header>
+
+
+<style>
+nav {
+  background-color: var(--bg-menu); /* Baggrundsfarve */
+  padding: 1rem; /* Afstand omkring menuen */
+  height: 100vh; /* Fuld højde */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Fuld bredde */
+  transition: background-color 0.3s ease;
+}
+
+ul {
+  list-style: none; /* Fjern punkttegn */
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 1rem; /* Afstand mellem menupunkterne lodret */
+  text-align: center;
+}
+
+a {
+  text-decoration: none; /* Fjern understregning */
+  color: var(--bg-base); /* Tekstfarve */
+  text-transform: uppercase;
+}
+
+a:hover {
+  color: var(--red-line); /* Farve ved hover */
+}
+</style>
+

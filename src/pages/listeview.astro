@@ -7,16 +7,26 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Card from "../components/Card.astro";
 import Slug from "./artists/[slug].astro";
 
+const data = await fetch(
+  "https://sgavxerkmhmstpzpgpuw.supabase.co/rest/v1/artists",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYXZ4ZXJrbWhtc3RwenBncHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2Nzk1MzksImV4cCI6MjA0NTI1NTUzOX0.h5Aqaz-Bt1qlt5_JDw3pKLp83L8YA5XWG57VRB15LRw",
+    },
+  }
+).then((res) => res.json());
 
+console.log(data);
 
 ---
 
 <MainLayout>
   
   <div class="listeview">
-    <h1 class="listeview_h1">NØRREBRO</h1>
+    <h1 class="listeview_h1">TORSDAG 30 MAJ</h1>
     <h2>
-      TORSDAG 30 MAJ <br />
       EVENTS & ARTISTS <br />
     <h2>
 
@@ -127,8 +137,8 @@ import Slug from "./artists/[slug].astro";
  </div>
 
  <!-- Højre kolonne -->
- <div class="kolonne_2">
-  <div class="container">
+<div class="kolonne_2">
+  <div class="event-item">
     <img src="/path-to-image1.jpg" alt="Artist Image" class="artist-image" />
     <h3>ARTIGEARDIT</h3>
     <div class="time">14.00-15.00</div>
@@ -170,26 +180,28 @@ import Slug from "./artists/[slug].astro";
     <div class="time">23.30-01.00</div>
   </div>
 </div>
-</div>
-
-<div class="image-gallery">
-  <img src="/path-to-image1.jpg" alt="Image 1" class="gallery-image" />
-  <img src="/path-to-image2.jpg" alt="Image 2" class="gallery-image" />
-  <img src="/path-to-image3.jpg" alt="Image 3" class="gallery-image" />
-</div>
 
 <ul>
   {
-  	artists.map((artist) => (
-      <Card title={artist.title}
-    		img={artist.image.url}
-			featured={artist.featured}
-	  />
+  	data.map((artist) => (
+      <Card data={artist}/>
   	))
   }
 </ul>
 
-
+<ul class="artists">
+  {
+    data.map((artist) => (
+      <li>
+        <a href={`artists/${artist.slug}`}>
+          <img src={artist.og_image} alt="" />
+          <h3>{artist.title}</h3>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+<h1 class="artister">NØRREBRO</h1>
 
 
   <style>
@@ -210,6 +222,13 @@ import Slug from "./artists/[slug].astro";
       display: flex;
       flex-direction: column;
       gap: 20px; 
+    }
+
+    .kolonne_2 {
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* 1/3 bredde til venstre kolonne, 2/3 bredde til højre */
+      gap: 20px; /* Mellemrum mellem kolonnerne */
+      padding: 20px;
     }
 
     .event-item {

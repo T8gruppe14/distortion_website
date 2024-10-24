@@ -19,208 +19,230 @@ const data = await fetch(
 ).then((res) => res.json());
 
 console.log(data);
-
 ---
 
 <MainLayout>
-  
-  <div class="listeview">
-    <h1 class="listeview_h1">TORSDAG 30 MAJ</h1>
+  <h1 class="listeview_h1">TORSDAG 30 MAJ</h1>
+  <h2>
+    EVENTS & ARTISTS <br />
     <h2>
-      EVENTS & ARTISTS <br />
-    <h2>
+      <div class="listeview">
+        <div class="event-item">
+          <p>14.30-15.00</p>
+          <p>PUSH THE BUTTON</p>
+          <p>14.30-15.00</p>
+          <p>BODYSLAM</p>
+          <p>15.00-16.00</p>
+          <p>LES DEUX BASKET COURT</p>
+        </div>
 
-    
+        <div class="ardit">
+          <img
+            src="/path-to-your-image2.jpg"
+            alt="Event Image 2"
+            class="event-image"
+          />
+        </div>
+      </div>
+
+      <style>
+        .listeview {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr;
+        }
+        h1 {
+          color: #e53014;
+        }
+
+        h1 {
+          display: flex;
+          justify-content: center;
+        }
+        h2 {
+          color: #ff932f;
+        }
+
+        h2 {
+          display: flex;
+          justify-content: center;
+        }
+      </style>
+    </h2>
+    <div class="event-item">
+      <!--   <img src={artist.og_image.url}/> -->
+      <div class="">
+        <h2></h2>
+      </div>
+
+      <div class="kolonne_1">
+        <div class="event-item">
+          <p>14.30-15.00</p>
+          <p>PUSH THE BUTTON</p>
+          <p>14.30-15.00</p>
+          <p>BODYSLAM</p>
+          <p>15.00-16.00</p>
+          <p>LES DEUX BASKET COURT</p>
+
+          <img
+            src="/path-to-your-image2.jpg"
+            alt="Event Image 2"
+            class="event-image"
+          />
+
+          <p>16.00-17.00</p>
+          <p>DJ HEARTSTRING</p>
+        </div>
+        <img
+          src="/path-to-your-image2.jpg"
+          alt="Event Image 2"
+          class="event-image"
+        />
+        <p>19.00-22.00</p>
+        <p>NOAH CARTER</p>
+
+        <p>00.00-02.00</p>
+        <p>BEAT THE STREET</p>
+        <p>00.00-02.00</p>
+        <p>POP UP STREET THEATRE</p>
+        <p>DE SCENESTE</p>
+        <p>02.00-03.00</p>
+        <p>LANGBORDSMIDDAG</p>
+
+        <p>23.00-00.00</p>
+        <p>STREET BALLET</p>
+        <img
+          src="/path-to-your-image2.jpg"
+          alt="Event Image 2"
+          class="event-image"
+        />
+        <p>01.00-02.30</p>
+        <p>KIND MOD KIND</p>
+      </div>
+    </div>
+
+    <!-- Højre kolonne -->
+    <div class="kolonne_2">
+      <div class="event-item">
+        <img
+          src="/path-to-image1.jpg"
+          alt="Artist Image"
+          class="artist-image"
+        />
+        <h3>ARTIGEARDIT</h3>
+        <div class="time">14.00-15.00</div>
+      </div>
+      <div class="event-item">
+        <img
+          src="/path-to-image2.jpg"
+          alt="Artist Image"
+          class="artist-image"
+        />
+        <h3>ANFISA LETYAGO</h3>
+        <div class="time">15.30-16.00</div>
+      </div>
+
+      <div class="event-item">
+        <img src="" alt="Artist Image" class="artist-image" />
+        <h3>AVALON EMERSON</h3>
+        <div class="time">15.30-16.00</div>
+      </div>
+
+      <div class="event-item">
+        <h3>MORMOR DISTORTION</h3>
+        <div class="time">20.00-22.00</div>
+      </div>
+
+      <div class="event-item">
+        <h3>ALORS ON DANSE</h3>
+        <div class="time">22.00-00.00</div>
+      </div>
+
+      <div class="event-item">
+        <h3>FRISØRSHJUL AF DOOM</h3>
+        <div class="time">22.00-00.00</div>
+      </div>
+
+      <div class="event-item">
+        <h3>PØLSEMIX</h3>
+        <div class="time">23.00-00.00</div>
+      </div>
+
+      <div class="event-item">
+        <h3>ARKADE JAM BIP BIP BAR</h3>
+        <div class="time">23.30-01.00</div>
+      </div>
+    </div>
+
+    <ul>
+      {data.map((artist) => <Card data={artist} />)}
+    </ul>
+
+    <ul class="artists">
+      {
+        data.map((artist) => (
+          <li>
+            <a href={`artists/${artist.slug}`}>
+              <img src={artist.og_image} alt="" />
+              <h3>{artist.title}</h3>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <h1 class="artister">NØRREBRO</h1>
 
     <style>
-      h1 {
-        color: #E53014
-      
-    
-      }
-
-      h1 {
-        display: flex;
-        justify-content: center;
-      }
       h2 {
-        color: #FF932F;
+        color: #e53014;
+      }
+      p {
+        color: #e53014;
+      }
+      .event-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
       }
 
-      h2 {
+      .kolonne_2 {
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .event-item {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
       }
-    </style>
-  </div>
- <div class="event-item">
-<!--   <img src={artist.og_image.url}/> -->
-  <div class="">
-    <h2></h2>
-  </div>
-</div>
 
-<div class="kolonne_1">
-<div class="event-item">
-    <p>14.30-15.00</p>
-    <p>PUSH THE BUTTON</p>
-    <p>14.30-15.00</p>
-    <p>BODYSLAM</p>
-    <p>15.00-16.00</p>
-    <p>LES DEUX BASKET COURT</p>
-
-    <img src="/path-to-your-image2.jpg" alt="Event Image 2" class="event-image" />
-  
-    <p>16.00-17.00</p>
-    <p>DJ HEARTSTRING</p>
-    </div>
-    <img src="/path-to-your-image2.jpg" alt="Event Image 2" class="event-image" />
-    <p>19.00-22.00</p>
-    <p>NOAH CARTER</p>
-  
-    <p>00.00-02.00</p>
-    <p>BEAT THE STREET</p>
-    <p>00.00-02.00</p>
-    <p>POP UP STREET THEATRE</p>
-    <p>DE SCENESTE</p>
-    <p>02.00-03.00</p>
-    <p>LANGBORDSMIDDAG</p>
-  
-    <p>23.00-00.00</p>
-    <p>STREET BALLET</p>
-  <img src="/path-to-your-image2.jpg" alt="Event Image 2" class="event-image" />
-    <p>01.00-02.30</p>
-    <p>KIND MOD KIND</p>
-
-  </div> 
- </div>
-
- <!-- Højre kolonne -->
-<div class="kolonne_2">
-  <div class="event-item">
-    <img src="/path-to-image1.jpg" alt="Artist Image" class="artist-image" />
-    <h3>ARTIGEARDIT</h3>
-    <div class="time">14.00-15.00</div>
-  </div>
-  <div class="event-item">
-    <img src="/path-to-image2.jpg" alt="Artist Image" class="artist-image" />
-    <h3>ANFISA LETYAGO</h3>
-    <div class="time">15.30-16.00</div>
-  </div>
-
-  <div class="event-item">
-    <img src="" alt="Artist Image" class="artist-image" />
-    <h3>AVALON EMERSON</h3>
-    <div class="time">15.30-16.00</div>
-  </div>
-
-  <div class="event-item">
-    <h3>MORMOR DISTORTION</h3>
-    <div class="time">20.00-22.00</div>
-  </div>
-
-  <div class="event-item">
-    <h3>ALORS ON DANSE</h3>
-    <div class="time">22.00-00.00</div>
-  </div>
-
-  <div class="event-item">
-    <h3>FRISØRSHJUL AF DOOM</h3>
-    <div class="time">22.00-00.00</div>
-  </div>
-
-  <div class="event-item">
-    <h3>PØLSEMIX</h3>
-    <div class="time">23.00-00.00</div>
-  </div>
-
-  <div class="event-item">
-    <h3>ARKADE JAM BIP BIP BAR</h2>
-    <div class="time">23.30-01.00</div>
-  </div>
-</div>
-
-<ul>
-  {
-  	data.map((artist) => (
-      <Card data={artist}/>
-  	))
-  }
-</ul>
-
-<ul class="artists">
-  {
-    data.map((artist) => (
-      <li>
-        <a href={`artists/${artist.slug}`}>
-          <img src={artist.og_image} alt="" />
-          <h3>{artist.title}</h3>
-        </a>
-      </li>
-    ))
-  }
-</ul>
-<h1 class="artister">NØRREBRO</h1>
-
-
-  <style>
-    h2 {
-      color: #E53014;
-  
-    }
-    p {
-      color: #E53014;
-    }
-    .event-details {
-      display: grid;
-      grid-template-columns: 1fr 1fr; 
-      gap: 20px; 
-    }
-
-    .kolonne_2 {
-      grid-template-columns: 1fr 2fr; 
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .event-item {
-      display: flex;
-      flex-direction: column;
-      gap: 20px; 
-    }
-
-    .image-gallery {
-      display: flex;
-      justify-content: center; 
-      gap: 20px; 
-      padding: 20px; 
-      background-color: #B5DDEB;
-    }
-
-    .gallery-image {
-      width: 200px; 
-      height: 200px;
-      object-fit: cover; 
-      border: 5px solid #E53014;
-    }
-
-    @media (max-width: 768px) {
       .image-gallery {
-        flex-direction: column; 
-        align-items: center; 
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        background-color: #b5ddeb;
       }
 
       .gallery-image {
-        width: 80%; 
-        height: auto;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border: 5px solid #e53014;
       }
-    }
 
-  </style>
-</div>
+      @media (max-width: 768px) {
+        .image-gallery {
+          flex-direction: column;
+          align-items: center;
+        }
 
-</div>
-    
-  </div>
-  
+        .gallery-image {
+          width: 80%;
+          height: auto;
+        }
+      }
+    </style>
+  </h2>
 </MainLayout>

@@ -1,10 +1,10 @@
 ---
-const { header, time } = Astro.props;
+const {data} = Astro.props;
 ---
 
 <article>
-<img src="" alt="">
-  <h1>{header}</h1>
+<img src={data.og_image} alt="">
+  <h1>{data.title}</h1>
 </article>
 
 <style>

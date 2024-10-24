@@ -34,14 +34,13 @@ console.log(data);
     />
   </div>
   <div class="byer">
-    <div class="nb">
-      <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
+    <div class="nb"><a href="/listeview"><Knap variant="red_btn"><b>NØRREBRO</b></Knap>
+      </a>
     </div>
-    <div class="ref">
-      <Knap variant="red_btn"><b>REFSHALEØEN</b></Knap>
+    <div class="ref"><a href="/listeview"><Knap variant="red_btn"><b>REFSHALEØEN</b></Knap></a>
     </div>
     <div class="rp">
-      <Knap variant="red_btn"><b>RÅDHUSPLADSEN</b></Knap>
+      <a href="/listeview"><Knap variant="red_btn"><b>RÅDHUSPLADSEN</b></Knap></a>
     </div>
   </div>
 
@@ -76,7 +75,6 @@ console.log(data);
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr 1fr 0.5fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  margin: 10px;
   gap: 10px;
 }
 .artister {
@@ -130,4 +128,60 @@ text-align: right;
     text-decoration: none;  
   text-transform: uppercase;
 }
+@media (max-width: 950px) {
+.artists {
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-rows: 1fr 1fr 0.5fr 1fr 1fr;
+  gap: 10px;}
+  .artister {
+writing-mode: vertical-rl;
+  text-orientation: sideways;
+  /* transform: rotate(180deg); */
+  /* margin-left: 60px; */
+  grid-column: 2;
+grid-row: 1;
+text-align: right;
+}
+.blue_knap{
+  grid-column: 1;
+  grid-row: 3;
+  place-self: center;
+}
+.gobs{
+  grid-column: 1;
+  grid-row: 1;
+  place-self: center;
+  padding-top: 30px;
+}
+.gobs img{
+  width: 250px;
+}
+.artigeardit{
+   grid-column: 1;
+  grid-row: 2;
+    place-self: center;
+
+}
+.artigeardit img{
+  width: 250px;
+}
+.goldie{
+ grid-column: 1;
+  grid-row: 4;
+  place-self: center;
+
+}
+.goldie img{
+  width: 250px;
+}
+.yakuza{
+ grid-column: 1;
+  grid-row: 5;
+  place-self: center;
+}
+.yakuza img{
+  width: 250px;
+}
+
+  }
 </style>

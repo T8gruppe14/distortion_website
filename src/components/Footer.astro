@@ -49,7 +49,7 @@
 
   <!-- Rød dansende mand -->
   <div class="dancer">
-    <img src="/path-to-dancer-image" alt="Dancer" />
+    <!-- <img src="/public/images/dance.png" alt="Dancer" /> -->
   </div>
 </footer>
 
@@ -75,7 +75,9 @@
     display: grid;
     grid-template-columns: 1fr 1.2fr 1fr;
     grid-template-rows: 0.4fr 1fr 1fr 1fr;
-    background-image: url(#);
+    background-image: url(/public/images/dance.png);
+    background-size: 330px;
+    background-repeat: no-repeat;
   }
 
   .column_1 {
@@ -166,18 +168,9 @@
     margin: 0 20px;
   }
 
-  .dancer {
-    /* position: absolute; */
-    /* top: 20px;
-    left: 20px; */
-    opacity: 0.7;
-    /* grid-column: 1/span2;
-    grid-row: 1/span4; */
-  }
-
-  .dancer img {
-    max-width: 200px;
-  }
+  /* .dancer {
+    max-width: 100px;
+  } */
 
   @media (max-width: 768px) {
     .footer {

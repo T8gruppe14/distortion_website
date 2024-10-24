@@ -45,19 +45,89 @@ console.log(data);
     </div>
   </div>
 
-  <ul class="artists">
+<div class="bg_color">
+  <div class="artists">
+    <h1 class="artister">ARTISTS</h1>
+    <div class="blue_knap">
+    <Knap variant="blue_btn">SEE ALL ARTISTS</Knap>
+    </div>
     {
       data.map((artist) => (
-        <li>
+        <div class={artist.slug}>
           <a href={`artists/${artist.slug}`}>
             <img src={artist.og_image} alt="" />
-            <h3>{artist.title}</h3>
+            <h4>{artist.title}</h4>
           </a>
-        </li>
+        </div>
       ))
     }
-  </ul>
-  <h1 class="artister">ARTISTS</h1>
+  </div>
+</div>
 
-  <Knap variant="blue_btn">SEE ALL ARTISTS</Knap>
 </MainLayout>
+
+<style>
+
+  .bg_color{
+  background-color: var(--bg-second);
+
+  }
+.artists {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 1fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  margin: 10px;
+  gap: 10px;
+}
+.artister {
+writing-mode: vertical-rl;
+  text-orientation: sideways;
+  /* transform: rotate(180deg); */
+  /* margin-left: 60px; */
+  grid-column: 5/6;
+grid-row: 1/4;
+text-align: right;
+}
+.blue_knap{
+  grid-column: 3/4;
+  grid-row: 3/4;
+  place-self: center;
+}
+.gobs{
+  grid-column: 1/3;
+  grid-row: 1/3;
+  place-self: center;
+}
+.gobs img{
+  width: 350px;
+}
+.artigeardit{
+   grid-column: 4/5;
+  grid-row: 2/3;
+}
+.artigeardit img{
+  width: 200px;
+}
+.goldie{
+ grid-column: 4/5;
+  grid-row: 3/4;
+    place-self: end;
+
+}
+.goldie img{
+  width: 200px;
+}
+.yakuza{
+ grid-column: 2/3;
+  grid-row: 3/5;
+  place-self: center;
+}
+.yakuza img{
+  width: 250px;
+}
+
+.gobs, .artigeardit, .goldie, .yakuza h4{
+    text-decoration: none;  
+  text-transform: uppercase;
+}
+</style>

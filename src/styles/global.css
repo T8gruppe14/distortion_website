@@ -65,9 +65,17 @@ p {
   font-size: 14px;
 }
 
+a {
+  text-decoration: none;
+  color: var(--second-botton-bg);
+}
+a:hover {
+  color: var(--red-line);
+}
+
 img {
   max-height: 100%;
-  width: 200px;
+  /* width: 200px; */
 }
 
 .gradient {
@@ -106,6 +114,8 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   row-gap: 60px;
+  padding-bottom: 208px;
+  padding-top: 138px;
 }
 
 .nb {
@@ -128,8 +138,4 @@ img {
   grid-column: 1 / span2;
   place-self: center;
   padding-bottom: 30px;
-}
-
-.artister {
-  rotate: 90deg;
 }

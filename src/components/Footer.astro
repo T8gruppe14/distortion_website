@@ -1,17 +1,19 @@
 ---
 // Footer.astro komponent
+
 ---
 
 <footer class="footer">
-  <!-- H1 i toppen -->
-  <h1>STREET LIFE & <br /> NEW DANCE MUSIC</h1>
 
   <div class="footer-content">
     <!-- Første kolonne - (tom) -->
-    <div class="column empty"></div>
+    <div class="column_1">
+      <!-- H1 i toppen -->
+      <h1>STREET LIFE & <br /> NEW DANCE MUSIC</h1>
+    </div>
 
     <!-- Anden kolonne ( email input) -->
-    <div class="column">
+    <div class="column_2">
       <h2>Get updated with <br /> all the fun stuff</h2>
       <form class="email-form">
         <input type="email" placeholder="Email address" />
@@ -20,35 +22,29 @@
     </div>
 
     <!-- Tredje kolonne (Join the Party, Apps, Social Media) -->
-    <div class="column-third">
-      <div class="column-element">
+      <div class="join">
         <h2>Join the party</h2>
         <a class="buy-ticket" href="#">Buy ticket →</a>
       </div>
-
-      <h2>Official Festival App</h2>
-      <div class="column-element">
+        
         <div class="app-links">
+          <h2>Official Festival App</h2>
           <a href="#"><img src="/public/images/App_store.svg" alt="App Store" /></a>
           <a href="#"><img src="/public/images/Google_play.svg" alt="Google Play" /></a
           >
         </div>
-      </div>
 
-      <h2>Follow us</h2>
-      <div class="column-element">
         <div class="social-links">
-          <a href="#"><img src="#" alt="Facebook" /></a>
-          <a href="#"><img src="/path-to-instagram-logo" alt="Instagram" /></a>
+          <h2>Follow us</h2>
+          <a href="#"><img src="/public/images/Facebook_ikon.svg" alt="Facebook" /></a>
+          <a href="#"><img src="/public/images/Instagram_ikon.svg" alt="Instagram" /></a>
         </div>
-      </div>
-    </div>
   </div>
 
   <!-- Logo'er i bunden' -->
   <div class="footer-logos">
-    <img src="/path-to-tuborg-logo" alt="Tuborg" />
-    <img src="/path-to-kbh-logo" alt="Københavns Kommune" />
+    <img src="/public/images/Tuborg.svg" alt="Tuborg" />
+    <img src="/public/images/Kommune.svg" alt="Københavns Kommune" />
   </div>
 
   <!-- Rød dansende mand -->
@@ -64,45 +60,36 @@
     position: relative;
     padding: 50px 20px;
     text-align: left;
-    font-family: Arial, sans-serif;
   }
 
   .footer h1 {
     font-size: 3rem; /* Large H1 */
-    margin-bottom: 40px;
     text-align: left;
-  }
+  } 
 
   .footer h2 {
-    font-family: Arial, sans-serif;
     font-size: 2em;
   }
 
   .footer-content {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-rows: 0.4fr 1fr 1fr 1fr;
+    background-image: url(#);
   }
 
-  .column {
-    flex: 1;
+  .column_1 {
+    grid-column: 1/span2;
   }
 
-  .column.empty {
-    flex: 1;
+  .column_2{
+    grid-column: 2;
+    grid-row: 3;
   }
 
-  .column-third {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Fordeler elementer jævnt fra top til bund */
-    height: 100%; /* Sørg for, at kolonnen fylder hele højdeområdet */
-    padding: 0; /* Juster efter behov */
-  }
-
-  .column-element {
-    margin-bottom: 40px;
+  .join{
+    grid-column: 3; 
+    grid-row: 2; 
   }
 
   .email-form {
@@ -149,10 +136,23 @@
     color: #e53014;
   }
 
-  .app-links img,
+  .app-links{
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .app-links img {
+   max-width: 100px;
+  margin-top: 10px;
+  }
+
+  .social-links {
+    grid-column: 3;
+    grid-row: 4;
+  }
   .social-links img {
-    max-width: 100px;
-    margin: 10px;
+    max-width: 50px;
+    margin-top: 10px;
+    justify-content: left;
   }
 
   .footer-logos {
@@ -167,10 +167,12 @@
   }
 
   .dancer {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    /* position: absolute; */
+    /* top: 20px;
+    left: 20px; */
     opacity: 0.7;
+    /* grid-column: 1/span2;
+    grid-row: 1/span4; */
   }
 
   .dancer img {

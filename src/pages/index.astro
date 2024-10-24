@@ -6,13 +6,20 @@ import Card from "../components/Card.astro";
 import { literal } from "astro:schema";
 
 const data = await fetch(
-  "https://fetch-with-astro.netlify.app/api/artists"
-).then((response) => response.json());
+  "https://sgavxerkmhmstpzpgpuw.supabase.co/rest/v1/artists",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNnYXZ4ZXJrbWhtc3RwenBncHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2Nzk1MzksImV4cCI6MjA0NTI1NTUzOX0.h5Aqaz-Bt1qlt5_JDw3pKLp83L8YA5XWG57VRB15LRw",
+    },
+  }
+).then((res) => res.json());
+
 console.log(data);
 ---
 
 <MainLayout>
-  <!-- <img class="gradient" src="/public/images/distortion_gradient.svg" alt="" /> -->
   <div class="index">
     <h1 class="forside_h1">Copenhagen Distortion</h1>
     <p>
@@ -26,19 +33,31 @@ console.log(data);
       alt="246 days 13 hours 31 minutes 43 seconds"
     />
   </div>
-  <Knap variant="blue_btn"><b>VIEW ALL ARTISTS</b></Knap>
-  <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
-  <Card header="Artigeardit" time="14:00-15:00" />
+  <div class="byer">
+    <div class="nb">
+      <Knap variant="red_btn"><b>NØRREBRO</b></Knap>
+    </div>
+    <div class="ref">
+      <Knap variant="red_btn"><b>REFSHALEØEN</b></Knap>
+    </div>
+    <div class="rp">
+      <Knap variant="red_btn"><b>RÅDHUSPLADSEN</b></Knap>
+    </div>
+  </div>
+
   <ul class="artists">
     {
       data.map((artist) => (
         <li>
           <a href={`artists/${artist.slug}`}>
-            <img src={artist.og_image.url} alt="" />
+            <img src={artist.og_image} alt="" />
             <h3>{artist.title}</h3>
           </a>
         </li>
       ))
     }
   </ul>
+  <h1 class="artister">ARTISTS</h1>
+
+  <Knap variant="blue_btn">SEE ALL ARTISTS</Knap>
 </MainLayout>

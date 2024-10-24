@@ -34,10 +34,11 @@ console.log(myData);
     <div class="artist_content">
       <div class="venstre_kolonne">
         <h2>{myData.date}</h2>
-        <h3>{myData.time}</h3>
+        <h3>{myData.venue}</h3>
+        <h4>{myData.time}</h4>
         <p>{myData.content}</p>
       </div>
-      <div class="højre kolonne">
+      <div class="højre_kolonne">
         <div class="spotify">
           <iframe
             style="border-radius:12px"
@@ -56,7 +57,7 @@ console.log(myData);
   <style>
     .artist_container {
       background-color: #b5ddeb;
-      margin: 0;
+      margin-top: 40px;
 
       img {
         width: 100%; /* Fylder hele bredden af siden */
@@ -65,11 +66,25 @@ console.log(myData);
         object-position: center;
         display: block;
       }
+
+      h1 {
+        text-align: left;
+      }
+
+      h2{
+        font-size: 7rem;
+      }
+
+      h3,
+      h4 {
+        color: #e53014;
+      }
+
     }
 
     .image_container {
       width: 100%; /* Fylder hele bredden af containeren */
-      max-height: 400px; /* Sætter en maksimal højde, kan justeres */
+      max-height: 600px; /* Sætter en maksimal højde, kan justeres */
       overflow: hidden; /* Skjuler alt, der går ud over containeren */
       position: relative; /* Gør det muligt at placere overlay over billedet */
       display: inline-block; /* Sikrer at containeren passer til billedets dimensioner */
@@ -99,6 +114,11 @@ console.log(myData);
     .venstre_kolonne {
       grid-column: 1;
       justify-content: left;
+      margin-left: 40px;
+
+      p{
+        margin-bottom: 20px;
+      }
     }
 
     .højre_kolonne {
